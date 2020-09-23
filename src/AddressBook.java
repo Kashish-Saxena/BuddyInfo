@@ -4,7 +4,8 @@ public class AddressBook {
 
     public static void main(String[] args) {
         buddy = new BuddyInfo();
-        System.out.println("AddressBook");
+        System.out.println("Address Book");
+
     }
 
     private void addBuddy(){
