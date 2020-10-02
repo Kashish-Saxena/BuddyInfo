@@ -8,11 +8,12 @@ public class AddressBook {
         buddies = new ArrayList<>();
     }
 
+    // Adds a buddy object into the list
     private void addBuddy(BuddyInfo b){
         if (b != null)
             buddies.add(b);
     }
-
+    // Revoves a buddy object from the list
     private BuddyInfo removeBuddy(int index) {
         if (index >= 0 && index < buddies.size())
             buddies.remove(index);
