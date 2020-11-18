@@ -1,8 +1,10 @@
+import java.util.Scanner;
+
 public class BuddyInfo {
 
     private static String name;
-    private String address;
-    private int number;
+    private static String address;
+    private static int number;
 
     public BuddyInfo(String name, String address, int number) {
         this.name = name;
@@ -27,6 +29,21 @@ public class BuddyInfo {
 
     public String toString(){
         return this.getName()+"#"+this.getAddress()+"#"+this.getNumber();
+    }
 
+    public static BuddyInfo importBuddy(String buddy){
+        Scanner s = new Scanner(buddy).useDelimiter("#");
+        name = s.next();
+        address = s.next();
+        number = s.nextInt();
+        s.close();
+        return new BuddyInfo(name, address, number);
+    }
+
+    public static void printBuddy (BuddyInfo b){
+        System.out.println(name +"\n"+ address+ "\n" + number);
+    }
+    public static void main(String[] args) {
+        printBuddy(importBuddy("Ron#Carleton#613"));
     }
 }

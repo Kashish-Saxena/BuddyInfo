@@ -1,6 +1,8 @@
+import java.io.*;
 import java.util.*;
 public class AddressBook {
 
+    BuddyInfo buddy;
     private static List<BuddyInfo> buddies;
 
     public AddressBook() {
@@ -25,11 +27,23 @@ public class AddressBook {
         }
     }
 
-    public static void main(String[] args) {
+    public void save(String filename) throws IOException {
+        File file = new File(filename);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        for(BuddyInfo b: buddies){
+            writer.write(b.toString());
+            writer.newLine();
+        }
+        writer.close();
+    }
+
+    public static void main(String[] args) throws IOException {
         BuddyInfo buddy = new BuddyInfo("Jack", "Carleton", 613);
+        BuddyInfo buddy2 = new BuddyInfo("Ron", "Ottawa", 647);
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(0);
+        addressBook.addBuddy(buddy2);
+        addressBook.save("addressbook.txt");
     }
 
 }
