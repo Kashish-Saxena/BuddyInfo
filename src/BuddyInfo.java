@@ -25,8 +25,8 @@ public class BuddyInfo {
         return number;
     }
 
-    public static void main(String[] args) {
-        name = "Homer";
-        System.out.println("Hello "+name+"!");
+    public String toString(){
+        return this.getName()+"#"+this.getAddress()+"#"+this.getNumber();
+
     }
 }

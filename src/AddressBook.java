@@ -1,7 +1,6 @@
 import java.util.*;
 public class AddressBook {
 
-    private static BuddyInfo buddy;
     private static List<BuddyInfo> buddies;
 
     public AddressBook() {
@@ -13,19 +12,24 @@ public class AddressBook {
         if (b != null)
             buddies.add(b);
     }
-    // Revoves a buddy object from the list
+    // Removes a buddy object from the list
     private BuddyInfo removeBuddy(int index) {
         if (index >= 0 && index < buddies.size())
             buddies.remove(index);
         return null;
     }
 
+    public void printAddressBook(){
+        for(BuddyInfo b: buddies){
+            System.out.println(b.toString());
+        }
+    }
+
     public static void main(String[] args) {
-        buddy = new BuddyInfo("Jack", "Carleton", 613);
+        BuddyInfo buddy = new BuddyInfo("Jack", "Carleton", 613);
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
         addressBook.removeBuddy(0);
-
     }
 
 }
