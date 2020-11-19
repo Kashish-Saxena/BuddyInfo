@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class BuddyInfo {
 
-    private static String name;
-    private static String address;
-    private static int number;
+    private String name;
+    private String address;
+    private int number;
 
     public BuddyInfo(String name, String address, int number) {
         this.name = name;
@@ -33,15 +33,15 @@ public class BuddyInfo {
 
     public static BuddyInfo importBuddy(String buddy){
         Scanner s = new Scanner(buddy).useDelimiter("#");
-        name = s.next();
-        address = s.next();
-        number = s.nextInt();
+        String name = s.next();
+        String address = s.next();
+        int number = s.nextInt();
         s.close();
         return new BuddyInfo(name, address, number);
     }
 
     public static void printBuddy (BuddyInfo b){
-        System.out.println(name +"\n"+ address+ "\n" + number);
+        System.out.println(b.name +"\n"+ b.address+ "\n" + b.number);
     }
     public static void main(String[] args) {
         printBuddy(importBuddy("Ron#Carleton#613"));
