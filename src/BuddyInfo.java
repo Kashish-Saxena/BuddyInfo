@@ -28,7 +28,7 @@ public class BuddyInfo {
     }
 
     public String toString(){
-        return this.getName()+"#"+this.getAddress()+"#"+this.getNumber();
+        return name+"#"+address+"#"+number;
     }
 
     public static BuddyInfo importBuddy(String buddy){
@@ -40,9 +40,11 @@ public class BuddyInfo {
         return new BuddyInfo(name, address, number);
     }
 
+    // Just for testing
     public static void printBuddy (BuddyInfo b){
-        System.out.println(b.name +"\n"+ b.address+ "\n" + b.number);
+        System.out.println(b.name +"#"+ b.address+ "#" + b.number);
     }
+
     public static void main(String[] args) {
         printBuddy(importBuddy("Ron#Carleton#613"));
     }
