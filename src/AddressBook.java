@@ -9,7 +9,7 @@ public class AddressBook {
     }
 
     // Adds a buddy object into the list
-    private void addBuddy(BuddyInfo b){
+    void addBuddy(BuddyInfo b){
         if (b != null)
             buddies.add(b);
     }
@@ -24,6 +24,14 @@ public class AddressBook {
         for(BuddyInfo b: buddies){
             System.out.println(b.toString());
         }
+    }
+
+    public String toString(){
+        String s = "";
+        for (BuddyInfo b: buddies){
+            s+=b.toString()+" ";
+        }
+        return s;
     }
 
     public void save(String filename) throws IOException {
